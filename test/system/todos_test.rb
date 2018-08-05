@@ -16,7 +16,7 @@ class TodosTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @todo.body
     fill_in "Status", with: @todo.status
-    fill_in "Tile", with: @todo.tile
+    fill_in "Title", with: @todo.title
     click_on "Create Todo"
 
     assert_text "Todo was successfully created"
@@ -29,7 +29,7 @@ class TodosTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @todo.body
     fill_in "Status", with: @todo.status
-    fill_in "Tile", with: @todo.tile
+    fill_in "Title", with: @todo.title
     click_on "Update Todo"
 
     assert_text "Todo was successfully updated"

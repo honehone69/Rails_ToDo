@@ -10,6 +10,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1>Todoアプリケーション</h1>
+    
+    <div id="wrapper">
+      <header>
+        <%= link_to '新しいTodo', new_todo_path %>
+      </header>
+      <%= yield %>
+    </div>
+
   </body>
 </html>

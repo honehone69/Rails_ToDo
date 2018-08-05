@@ -1,10 +1,10 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:show, :edit, :update, :status,:destroy]
 
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = Todo.where(status: 0)
   end
 
   # GET /todos/1
@@ -50,6 +50,12 @@ class TodosController < ApplicationController
       end
     end
   end
+  
+  def status
+    @todo.status = params[:status]
+    @todo.save!
+    redirect_to root_url, notice: "「#{@todo.title}」が完了しました"
+  end
 
   # DELETE /todos/1
   # DELETE /todos/1.json
@@ -69,6 +75,8 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:tile, :body, :status)
+      params.require(:todo).permit(:title, :body, :status, :priority)
     end
+    
+
 end
