@@ -25,3 +25,28 @@ table {
         padding: 4px;
     }
 }
+
+nav.pagination {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    
+    input[type=text], textarea {
+        width: 100%;
+    }
+}
+
+.panel {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.navigations {
+    width: 50%;
+    margin: 0 auto;
+}

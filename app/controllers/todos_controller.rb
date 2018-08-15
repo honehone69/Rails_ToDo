@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.where(status: 0).order("priority DESC")
+    @todos = Todo.where(status: 0).order("priority DESC").page params[:page]
   end
 
   # GET /todos/1
@@ -75,7 +75,7 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:title, :body, :status, :priority, :category_id)
+      params.require(:todo).permit(:title, :body, :priority, :category_id)
     end
     
 

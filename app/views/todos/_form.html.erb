@@ -1,16 +1,5 @@
 <%= form_with(model: todo, local: true) do |form| %>
-  <% if todo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(todo.errors.count, "個") %> エラーがあります:</h2>
-
-      <ul>
-      <% todo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render "shared/errors_html", object: @todo %>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -18,12 +7,7 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.text_area :body, rows: 5 %>
   </div>
   
   <div class="field">
