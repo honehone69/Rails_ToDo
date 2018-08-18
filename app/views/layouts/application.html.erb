@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Environment</title>
+    <title>Rails_Todo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,13 +10,21 @@
   </head>
 
   <body>
-    <h1><%= link_to "Todoアプリケーション", root_path %></h1>
+    <h1 class="title"><%= link_to "Todoアプリケーション", root_path %></h1>
     
     <div id="wrapper">
       <header>
-        <%= link_to '新しいTodo', new_todo_path %>
-        <%= link_to 'カテゴリ−', categories_path %>
-        <%= link_to '新しいカテゴリー', new_category_path %>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <%= link_to '新しいTodo',  new_todo_path, { :class => 'nav-link active show', data: { toggle:"tab" } } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'カテゴリ−', categories_path, { :class => 'nav-link', data: { toggle:"tab" }  }  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '新しいカテゴリー', new_category_path, { :class => 'nav-link',  data: { toggle:"tab" } } %>
+          </li>
+        </ul>
       </header>
       <%= yield %>
     </div>
